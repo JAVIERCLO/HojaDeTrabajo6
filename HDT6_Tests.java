@@ -22,4 +22,8 @@ public class HDT6_Tests {
             fail("No debería lanzarse una excepción al leer el archivo.");
         }
     }
+
+    //Agregar test para verificar si se agregó un pokemon correctamente
+    //Agregar test para verificar si se muestra la información del pokemon correctamente
+    // (opcional) Agregar test para verificar si el profiler funciona bien
 }

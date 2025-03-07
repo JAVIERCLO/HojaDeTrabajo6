@@ -4,7 +4,7 @@ import java.util.TreeMap;
 import java.util.LinkedHashMap;
 
 public class Factory {
-    
+    //completar y averiguar qué tipo de datos usar para la clave y el valor
     public Map createMap(String nombre){
 
         switch(nombre){
