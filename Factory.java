@@ -4,21 +4,22 @@ import java.util.TreeMap;
 import java.util.LinkedHashMap;
 
 public class Factory {
-    //completar y averiguar qué tipo de datos usar para la clave y el valor
-    public Map createMap(String nombre){
+    public static Map<String, Pokemon> createMap(int opcion){
 
-        switch(nombre){
+        switch(opcion){
             
-            case "hashmap":
-            HashMap<String, Integer> hm = new HashMap<>();
+            case 1:
+            return new HashMap<>();
 
-            case "treemap":
-            TreeMap<String, Integer> tm = new TreeMap<>();
+            case 2:
+            return new TreeMap<>();
 
-            case "linkedhashmap":
-            LinkedHashMap<String, Integer> lhm = new LinkedHashMap<>();
+            case 3:
+            return new LinkedHashMap<>();
+            
+            default:
+            throw new IllegalArgumentException("Ingresa una opcion valida");
+
         }
-                return null;
-
     }
 }

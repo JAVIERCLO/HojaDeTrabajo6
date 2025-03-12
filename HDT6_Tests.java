@@ -1,29 +1,29 @@
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HDT6_Tests {
     
-        @Test
+    @Test
     public void testLecturaArchivo() {
-        Database lector = new Database();
+        Map<String, Pokemon> pokemonMap = new HashMap<>();
+        Database lector = new Database(pokemonMap);
         try {
-            
-            assertNotNull("El archivo no debería ser nulo");
-            assertFalse("El archivo no debería estar vacío",  .isEmpty());
-
-        } catch (IOException e) {
-            fail("No debería lanzarse una excepción al leer el archivo.");
+            lector.leerData("pokemon_data_pokeapi.csv");
+            assertFalse(pokemonMap.isEmpty(), "El mapa de Pokémon no debería estar vacío.");
+        } catch (Exception e) {
+            fail("Error al leer el archivo: " + e.getMessage());
         }
     }
 
-    //Agregar test para verificar si se agregó un pokemon correctamente
-    //Agregar test para verificar si se muestra la información del pokemon correctamente
-    // (opcional) Agregar test para verificar si el profiler funciona bien
+    @Test
+    public void testAgregarPokemon() {
+        Coleccion coleccion = new Coleccion();
+        Pokemon pikachu = new Pokemon("Pikachu", 25, "Electric", null, "Ratón", 
+                                      0.4f, 6.0f, "Static", 1, false);
+
+        assertTrue(coleccion.agregarPokemon(pikachu), "Pikachu debería agregarse correctamente.");
+        assertFalse(coleccion.agregarPokemon(pikachu), "No debería permitir agregar el mismo Pokémon dos veces.");
+    }
 }
